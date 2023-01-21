@@ -1,0 +1,16 @@
+import discord
+
+from discord.ext import commands
+
+class COGNAME(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
+    @commands.command()
+    async def COMMANDNAME(self, ctx):
+        await ctx.message.delete()
+        await ctx.send("REPLY")
+
+def setup(bot):
+    bot.add_cog(COGNAME(bot))
+    print("COGNAME loaded successfully")
