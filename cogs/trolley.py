@@ -81,12 +81,13 @@ class trolley(commands.Cog):
         os.makedirs("data/images", exist_ok=True)
         try:
             image = random.choice(os.listdir("data/images"))
+            await ctx.send(file=discord.File(os.path.join("data/images", image)))
         except IndexError:
             await ctx.send(
                 "No images found! Please run updateimages or manually fill the image directory first."
             )
             return
-        await ctx.send(file=discord.File(os.path.join("data/images", image)))
+        
 
 
 def setup(bot):
