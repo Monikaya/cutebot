@@ -92,4 +92,4 @@ class trolley(commands.Cog):
 
 def setup(bot):
     bot.add_cog(trolley(bot))
-    print("Trolley cog loaded")
+    print("trolley cog loaded")
