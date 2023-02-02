@@ -9,9 +9,8 @@ class admin(commands.Cog):
     @commands.command()
     async def purge(self, ctx, amount):
         await ctx.message.delete()
-        
+        await ctx.channel.purge(limit=int(amount))
         try:
-            await ctx.channel.purge(limit=int(amount))
             await ctx.send(f"Deleted {amount} messages", delete_after=5)
         except Exception:
             pass
