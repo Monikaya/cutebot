@@ -84,7 +84,8 @@ class trolley(commands.Cog):
             await ctx.send(file=discord.File(os.path.join("data/images", image)))
         except IndexError:
             await ctx.send(
-                "No images found! Please run updateimages or manually fill the image directory first."
+                "No images found! Please run updateimages or manually fill the image directory first.",
+                delete_after=5
             )
             return
         
