@@ -16,8 +16,13 @@ class admin(commands.Cog):
             pass
 
     @commands.command()
-    async def clean(self,ctx, amount):
-        print("NOT IMPLEMENTED YET :D")
+    async def clean(self, ctx, amount):
+        await ctx.message.delete()
+        await ctx.channel.purge(limit=int(amount), check=lambda m: m.author == self.bot.user)
+        try:
+            await ctx.send(f"Deleted {amount} messages", delete_after=5)
+        except Exception:
+            pass
 
     @commands.command()
     async def kick(self, ctx, member: discord.Member, *, reason=None):
