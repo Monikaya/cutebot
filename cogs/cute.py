@@ -3,31 +3,31 @@ import requests
 
 from discord.ext import commands
 
+
 class cute(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(brief='hugs someone :D')
+    @commands.command(brief="hugs someone :D")
     async def hug(self, ctx):
         await ctx.message.delete()
         r = requests.get("https://nekos.life/api/v2/img/hug")
         res = r.json()
-        await ctx.send(res['url'])
+        await ctx.send(res["url"])
 
-    @commands.command(brief='cuddle')
+    @commands.command(brief="cuddle")
     async def cuddle(self, ctx):
         r = requests.get("https://nekos.life/api/v2/img/cuddle")
         res = r.json()
-        await ctx.send(res['url'])
+        await ctx.send(res["url"])
 
-    @commands.command(brief='*pat*')
+    @commands.command(brief="*pat*")
     async def pat(self, ctx):
         r = requests.get("https://nekos.life/api/v2/img/pat")
         res = r.json()
-        await ctx.send(res['url'])
+        await ctx.send(res["url"])
+
 
 def setup(bot):
     bot.add_cog(cute(bot))
     print("cute loaded successfully")
-
-

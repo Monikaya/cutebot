@@ -1,9 +1,12 @@
 import asyncio
 import os
 
+
 async def create_dotenv():
     print("Seems like you don't have a .env file. Let's create one now!")
-    token = input("Please enter your discord token (this won't be shared with anyone): ")
+    token = input(
+        "Please enter your discord token (this won't be shared with anyone): "
+    )
     if input("do you want to enable the twitter liked image module? (y/n) ") == "y":
         bearer = input("Please enter your twitter bearer token: ")
         twitter_id = input("Please enter your twitter user id: ")
@@ -24,5 +27,6 @@ def main():
     os.system("pip install -r requirements.txt")
 
     print("You're all set! Run main.py to start the bot!")
+
 
 main()

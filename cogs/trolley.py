@@ -85,10 +85,9 @@ class trolley(commands.Cog):
         except IndexError:
             await ctx.send(
                 "No images found! Please run updateimages or manually fill the image directory first.",
-                delete_after=5
+                delete_after=5,
             )
             return
-        
 
 
 def setup(bot):
