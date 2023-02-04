@@ -11,6 +11,9 @@ bot = commands.Bot(command_prefix="~", self_bot=True)
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
+    if not os.getenv("BEARER_TOKEN"):
+        bot.unload_extension("cogs.trolley")
+        print("twitter cog disabled because BEARER_TOKEN is not set")
 
 
 for cog in os.listdir("./cogs"):
