@@ -20,13 +20,9 @@ def main():
     print("Thanks for using my bot! Let's get you setup!")
     if not os.path.exists(".env"):
         asyncio.run(create_dotenv())
-    if input("Do you want to setup the bot in a virtual environment? (y/n) ") == "y":
-        os.system("python3 -m venv venv")
-        os.system("source venv/bin/activate")
-        os.system("pip3 install -r requirements.txt")
-        print("Installed as a virtual environment! Remember to run 'source venv/bin/activate' whenever you'd like to use the bot!")
-    else:
-        os.system("pip3 install -r requirements.txt")
-        print("Installed requirements!")
+    print("Installing requirements...")
+    os.system("pip install -r requirements.txt")
+
+    print("You're all set! Run main.py to start the bot!")
 
 main()
